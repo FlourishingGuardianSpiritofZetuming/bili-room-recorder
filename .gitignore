@@ -1,0 +1,25 @@
+# 构建产物 / 临时文件
+dist/
+node_modules/
+tools/node_modules/
+tools/poc/
+tools/page/
+tools/package/
+tools/sherpaw/
+tools/models/
+*.tgz
+*.log
+
+# 临时浏览器配置
+tools/tmp-*/
+
+# 真实抓包原始数据（脱敏后的 room-A.jsonl 才入库）
+tests/fixtures/*.raw.jsonl
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+tools/sanitize-fixture.mjs
+
+tools/bin/

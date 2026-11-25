@@ -1,0 +1,11 @@
+{
+  "name": "bili-room-recorder",
+  "private": true,
+  "type": "module",
+  "version": "1.2.0",
+  "description": "B站语聊房多房间记录器：发言/上下麦/弹幕/本地识别/录音",
+  "scripts": {
+    "test": "node --test",
+    "vendor": "node scripts/build-vendor.mjs"
+  }
+}

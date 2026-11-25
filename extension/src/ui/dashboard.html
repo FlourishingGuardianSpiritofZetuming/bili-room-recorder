@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>B站语聊房记录器</title>
+    <link rel="stylesheet" href="./dashboard.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-title">语聊房记录器</div>
+        <div class="brand-sub">多房间 · 说话人 · 上下麦 · 弹幕</div>
+      </div>
+      <div class="list-head">
+        <span id="sessionCount">0 个房间</span>
+        <button id="refreshBtn" class="link-btn" title="重新读取">刷新</button>
+      </div>
+      <div id="sessionList" class="session-list"></div>
+      <div class="sidebar-foot">
+        <button id="exportAllBtn" class="ghost">导出全部（合并）</button>
+        <button id="clearAllBtn" class="ghost danger">清空数据</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="title-wrap">
+          <h1 id="roomTitle">选择左侧房间</h1>
+          <div id="roomMeta" class="room-meta"></div>
+        </div>
+        <div class="actions">
+          <button id="exportMdBtn" class="primary">导出本房间 Markdown</button>
+          <button id="exportJsonlBtn" class="ghost">JSONL</button>
+          <button id="exportTxtBtn" class="ghost">纯文本</button>
+          <button id="copyTxtBtn" class="ghost">复制全文</button>
+          <button id="deleteBtn" class="ghost danger">删除本场</button>
+        </div>
+      </header>
+
+      <section id="health" class="health"></section>
+
+      <nav class="tabs">
+        <button data-tab="asr" class="tab active">发言</button>
+        <button data-tab="seat" class="tab">上麦/下麦</button>
+        <button data-tab="danmu" class="tab">弹幕</button>
+        <button data-tab="all" class="tab">全部事件</button>
+        <button data-tab="rec" class="tab">录音</button>
+      </nav>
+
+      <section class="content">
+        <div id="panel" class="panel"><div class="empty">左侧选择一场记录</div></div>
+      </section>
+    </main>
+
+    <script type="module" src="./dashboard.js"></script>
+  </body>
+</html>

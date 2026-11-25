@@ -1,0 +1,74 @@
+{
+  "manifest_version": 3,
+  "name": "B站语聊房记录器（多房间）",
+  "version": "1.2.0",
+  "description": "同时记录多个 B 站语聊房：语音转写（谁在说、说了什么）、上麦/下麦时间点、弹幕与在线人数；B 站没开 ASR 的房间可自动改用本地离线识别。",
+  "minimum_chrome_version": "116",
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "tabs",
+    "clipboardWrite",
+    "offscreen",
+    "downloads"
+  ],
+  "host_permissions": [
+    "https://live.bilibili.com/*",
+    "https://api.live.bilibili.com/*",
+    "https://api.bilibili.com/*"
+  ],
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://live.bilibili.com/*"
+      ],
+      "js": [
+        "src/content/hook.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "https://live.bilibili.com/*"
+      ],
+      "js": [
+        "src/common/wbi.js",
+        "src/content/bridge.js"
+      ],
+      "run_at": "document_start",
+      "world": "ISOLATED",
+      "all_frames": false
+    }
+  ],
+  "action": {
+    "default_popup": "src/ui/popup.html",
+    "default_title": "语聊房记录器"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "vendor/*"
+      ],
+      "matches": [
+        "https://live.bilibili.com/*"
+      ]
+    }
+  ],
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxczMyYYj2X9UGNrZ+BgfMr49KPt90N4PWaIdmKLEWZSdV0SSDOnYe66WLEhQpNztOWt3NBZQnzKZQcORe1rrjvhNyL/J9a6Ri7w1S4qGKWRmphcG4q0L20X7B0S0Wcb9Py6BADLgUQTOXwH86t8zHuD41LDk1GbvRkQFt3AfojxSmuUZRMgsF9RL6ClC6w7Tv+9HoYp20R3WXlycln65Na1bqNBqifpg/WovqFwR/CQiQsmd5X/xzcOLNEtqDhyogT3aJeJrXsi8TpYWPQHpj6JQKPBjXVSD12UrVHz/dUXIGWfSQ2X8tlzgqmHQ+5rN22Dj1ieztp0wC6Bqu1PvLwIDAQAB"
+}
+
+
