@@ -28,8 +28,11 @@
 
 系统要求：**Edge / Chrome 116 以上**
 
-1. 点上方绿色 **`Code` → `Download ZIP`**，解压到任意目录（不要在压缩包里直接操作）；
-   或者 `git clone https://github.com/FlourishingGuardianSpiritofZetuming/bili-room-recorder.git`
+**下载安装包**：[Releases → 最新版本](https://github.com/FlourishingGuardianSpiritofZetuming/bili-room-recorder/releases/latest)（`Assets` 里的 zip，约 4MB，解压即用）。
+
+> 也可以点绿色 `Code → Download ZIP` 下源码包，但源码包包含 `tests/`、`tools/`，加载时同样选里面的 `extension` 文件夹。
+
+1. 把下载的 ZIP 解压到任意目录（不要在压缩包里直接操作）；
 2. 打开浏览器扩展页：
    - Edge：地址栏输入 `edge://extensions`
    - Chrome：地址栏输入 `chrome://extensions`
